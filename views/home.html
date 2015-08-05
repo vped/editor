@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="../js/home.js"></script>
+    <title></title>
+</head>
+<body ng-app="editor" ng-controller="homeCtrl">
+<div class="row" style="">
+<div class="container">
+    <div class="col-md-10">
+        <div class="panel panel-primary" >
+            <div class="panel-heading" style="text-align: center">TOOLS</div>
+            <div class="panel-body">
+               <button type="button" class="btn btn-default" ng-click="printDiv()">PRINT</button>
+               <button type="button" class="btn btn-default" ng-click="cut()">CUT</button>
+               <button type="button" class="btn btn-default" ng-click="paste()">PASTE</button>
+               <button type="button" class="btn btn-default" ng-click="boldIt(bold=!bold)">BOLD</button>
+               <button type="button" class="btn btn-default" ng-click="italicIt(italic=!italic);">ITALIC</button>
+               <button type="button" class="btn btn-default" ng-click="underline()">UNDERLINE</button>
+               <button type="button" class="btn btn-default" ng-click="leftIt()">LEFT</button>
+               <button type="button" class="btn btn-default" ng-click="rightIt();">RIGHT</button>
+               <button type="button" class="btn btn-default" ng-click="centerIt()">CENTER</button>
+            </div>
+        </div>
+    </div>
+        <div class="col-md-10 ">
+            <div class="panel panel-info" >
+                <div class="panel-heading" style="text-align: center">WRITE HERE</div>
+                <div ng-mouseup="getSelectionText()" class="panel-body">
+                    <textarea  ng-class="{'bold':class=='bold','italic':class=='italic','center':class=='center','left':class=='left','right':class=='right','none':class=='none'}" id="area" ng-model="content" class="form-control"></textarea>
+                </div>
+                WORDCOUNT = {{content.length}}
+                selectedTEXT: {{text}}
+            </div>
+        </div>
+
+</div>
+</div>
+</body>
+
+<style>
+
+
+    .right {
+     text-align: right;
+    }
+    .left {
+        text-align: left;
+    }
+    .center {
+        text-align: center;
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .none {
+        font-style: normal;
+    }
+    .italic {
+        font-style: italic;
+    }
+    .h1 {
+
+    }
+
+    #area::selection {
+        background-color: yellow;
+    }
+</style>
+</html>
